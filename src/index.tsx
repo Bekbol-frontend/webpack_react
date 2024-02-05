@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
-import App from "./App";
-import AppContextProvider from "./context/AppContextProvider";
-import "./styles/main.scss";
+import App from "./app/App";
+import { AppContextProvider } from "./app/Providers/ContextProvider";
+import "./app/styles/main.scss";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement!);

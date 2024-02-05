@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useMemo, useState } from "react";
-import { AppContext } from "./createContext";
+import { AppContext } from "../config/createContext";
 
 interface IProps {
   children: ReactNode;

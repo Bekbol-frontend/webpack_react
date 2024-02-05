@@ -1,15 +1,7 @@
-import { useAppContext } from "./context/useAppContext";
-import { useTheme } from "./hooks/useTheme";
-import { clsx } from "./helpers/clsx";
+import { useTheme, useAppContext } from "../shared/hooks";
 
 function App() {
   const { theme, toggleTheme } = useAppContext();
-
-  console.log(
-    clsx(["title", "desc"], {
-      active: true,
-    })
-  );
 
   useTheme();
 
