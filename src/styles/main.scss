@@ -1,0 +1,8 @@
+@import "./var";
+@import "./reset";
+
+body {
+  font-family: $font-lato;
+  min-width: 380px;
+  background-color: var(--body-bg-default);
+}

@@ -1,0 +1,24 @@
+$font-roboto: "Roboto", sans-serif;
+$font-lato: "Lato", sans-serif;
+
+$color-light: #fff;
+$color-dark: #23272f;
+
+$color-gray-light: #f3f4f6;
+$color-gray-dark: #191c22;
+
+:root {
+  --color-all: #087ea4;
+
+  --body-bg-light: #{$color-light};
+  --body-bg-dark: #{$color-dark};
+  --body-bg-default: #{var(--body-bg-light)};
+
+  --content-bg-light: #{$color-gray-light};
+  --content-bg-dark: #{$color-gray-dark};
+  --content-bg-default: #{var(--content-bg-light)};
+
+  --text-color-light: #{$color-dark};
+  --text-color-dark: #{$color-light};
+  --text-color-default: #{var(--text-color-light)};
+}
