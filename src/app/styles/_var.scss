@@ -4,11 +4,12 @@ $font-lato: "Lato", sans-serif;
 $color-light: #fff;
 $color-dark: #23272f;
 
-$color-gray-light: #f3f4f6;
+$color-gray-light: #f9f9f9;
 $color-gray-dark: #191c22;
 
 :root {
   --color-all: #087ea4;
+  --header-height: 70px;
 
   --body-bg-light: #{$color-light};
   --body-bg-dark: #{$color-dark};

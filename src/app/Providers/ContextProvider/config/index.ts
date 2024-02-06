@@ -1,4 +1,4 @@
 import { createContext } from "react";
-import { IContext } from "../ui/AppContextProvider";
+import { IContext } from "../model";
 
 export const AppContext = createContext<IContext>(null!);

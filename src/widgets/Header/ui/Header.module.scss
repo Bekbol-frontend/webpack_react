@@ -1,0 +1,37 @@
+.header {
+  height: var(--header-height);
+  background-color: var(--content-bg-default);
+  display: flex;
+  align-items: center;
+  padding: 10px clamp(15px, 2vw, 20px);
+
+  .headerInner {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: clamp(10px, 2vw, 20px);
+
+    .logo {
+      color: var(--color-all);
+      font-size: clamp(20px, 2vw, 24px);
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+
+    .headerLinks {
+      display: flex;
+      gap: clamp(10px, 1vw, 15px);
+
+      .link {
+        font-size: clamp(15px, 1.5vw, 17px);
+        text-transform: capitalize;
+
+        &.active {
+            color: red;
+        }
+
+      }
+    }
+  }
+}

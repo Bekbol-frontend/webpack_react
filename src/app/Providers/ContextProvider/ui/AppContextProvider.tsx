@@ -1,23 +1,22 @@
 import { ReactNode, useEffect, useMemo, useState } from "react";
-import { AppContext } from "../config/createContext";
+import { AppContext } from "../config";
+import { LOCAL_STORAGE_THEME } from "@/shared/const/localstorage";
+import { ThemeType } from "../model";
 
 interface IProps {
   children: ReactNode;
 }
 
-export type ThemeType = "dark" | "light";
-export interface IContext {
-  theme: ThemeType;
-  toggleTheme: () => void;
-}
-
 const getThemeLocalStorage = (): ThemeType => {
-  return localStorage.getItem("theme")
-    ? (localStorage.getItem("theme") as ThemeType)
+  return localStorage.getItem(LOCAL_STORAGE_THEME)
+    ? (localStorage.getItem(LOCAL_STORAGE_THEME) as ThemeType)
     : "light";
 };
 
-function AppContextProvider({ children }: IProps) {
+// Memo bul jerge kerek emes
+// sebebi bul Component propsta children qabil etedi!!!
+
+export default function AppContextProvider({ children }: IProps) {
   const [theme, setTheme] = useState(() => getThemeLocalStorage());
 
   const toggleTheme = () => {
@@ -25,7 +24,7 @@ function AppContextProvider({ children }: IProps) {
   };
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
+    localStorage.setItem(LOCAL_STORAGE_THEME, theme);
   }, [theme]);
 
   const value = useMemo(
@@ -38,5 +37,3 @@ function AppContextProvider({ children }: IProps) {
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }
-
-export default AppContextProvider;

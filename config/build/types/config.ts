@@ -5,6 +5,7 @@ export interface IPaths {
   output: string;
   html: string;
   devServer: string;
+  src: string;
 }
 
 export interface IBuildEnv {

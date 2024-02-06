@@ -14,6 +14,7 @@ const config = (env: IBuildEnv) => {
     output: path.resolve(__dirname, "build"),
     html: path.resolve(__dirname, "public", "index.html"),
     devServer: path.resolve(__dirname, "public"),
+    src: path.resolve(__dirname, "src"),
   };
 
   const configWebpack: webpack.Configuration = buildWebpack({
