@@ -21,6 +21,7 @@
 
     .headerLinks {
       display: flex;
+      align-items: center;
       gap: clamp(10px, 1vw, 15px);
 
       .link {

@@ -7,9 +7,20 @@ $color-dark: #23272f;
 $color-gray-light: #f9f9f9;
 $color-gray-dark: #191c22;
 
+$btn-bg-light: royalblue;
+$btn-bg-hover-light: rgb(86, 125, 242);
+
+$btn-bg-dark: rgb(245, 247, 255);
+$btn-bg-hover-dark: rgb(202, 214, 252);
+
+$btn-color-light: #fff;
+$btn-color-dark: royalblue;
+
 :root {
-  --color-all: #087ea4;
+  --color-all: royalblue;
   --header-height: 70px;
+  --danger-color-light: rgb(243, 84, 116);
+  --danger-color-dark: crimson;
 
   --body-bg-light: #{$color-light};
   --body-bg-dark: #{$color-dark};
@@ -22,4 +33,16 @@ $color-gray-dark: #191c22;
   --text-color-light: #{$color-dark};
   --text-color-dark: #{$color-light};
   --text-color-default: #{var(--text-color-light)};
+
+  --btn-bg-light: #{$btn-bg-light};
+  --btn-bg-dark: #{$btn-bg-dark};
+  --btn-bg-default: #{var(--btn-bg-light)};
+
+  --btn-bg-hover-light: #{$btn-bg-hover-light};
+  --btn-bg-hover-dark: #{$btn-bg-hover-dark};
+  --btn-bg-hover-default: #{var(--btn-bg-hover-light)};
+
+  --btn-color-light: #{$btn-color-light};
+  --btn-color-dark: #{$btn-color-dark};
+  --btn-color-default: #{var(--btn-color-light)};
 }

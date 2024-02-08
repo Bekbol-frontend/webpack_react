@@ -1,0 +1,13 @@
+.themeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: clamp(20px, 1.5vw, 27px);
+
+  & > span {
+    display: flex;
+  }
+}

@@ -6,10 +6,17 @@ export const useTheme = () => {
   const html = document.querySelector("html");
 
   useEffect(() => {
-    const vars = ["--body-bg", "--content-bg", "--text-color"];
+    const vars = [
+      "body-bg",
+      "content-bg",
+      "text-color",
+      "btn-bg",
+      "btn-bg-hover",
+      "btn-color",
+    ];
 
     vars.forEach((el) => {
-      html?.style.setProperty(`${el}-default`, `var(${el}-${theme})`);
+      html?.style.setProperty(`--${el}-default`, `var(--${el}-${theme})`);
     });
   }, [theme]);
 };
