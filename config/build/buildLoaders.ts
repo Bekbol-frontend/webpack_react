@@ -1,11 +1,22 @@
 import webpack from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { IBuildOptions } from "./types/config";
+import ReactRefreshTypeScript from "react-refresh-typescript";
 
 export function buildLoaders({ isDev }: IBuildOptions): webpack.ModuleOptions {
   const tsLoader = {
-    test: /\.tsx?$/,
-    use: "ts-loader",
+    test: /\.[jt]sx?$/,
+    use: [
+      {
+        loader: "ts-loader",
+        options: {
+          getCustomTransformers: () => ({
+            before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
+          }),
+          transpileOnly: isDev,
+        },
+      },
+    ],
     exclude: /node_modules/,
   };
 
@@ -29,7 +40,29 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.ModuleOptions {
     ],
   };
 
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    use: [
+      {
+        loader: "file-loader",
+        options: {
+          name: "assets/images/[name].[ext]",
+        },
+      },
+    ],
+  };
+
+  const svgLoader = {
+    test: /\.svg$/,
+    use: [
+      {
+        loader: "@svgr/webpack",
+        options: {},
+      },
+    ],
+  };
+
   return {
-    rules: [cssLoader, tsLoader],
+    rules: [cssLoader, tsLoader, fileLoader, svgLoader],
   };
 }

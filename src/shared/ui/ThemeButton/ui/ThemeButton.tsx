@@ -1,5 +1,5 @@
-import { useAppContext } from "@/shared/hooks";
 import { memo } from "react";
+import { useAppContext } from "@/shared/hooks";
 import Button from "../../Button/ui/Button";
 import { Icon } from "../../Icon";
 import styles from "./ThemeButton.module.scss";

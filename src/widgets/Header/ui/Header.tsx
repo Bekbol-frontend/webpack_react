@@ -5,6 +5,9 @@ import { AppRoutes, routePath } from "@/shared/config/routeConfig";
 import { clsx } from "@/shared/lib/clsx";
 import { useAppContext } from "@/shared/hooks";
 import { ThemeButton } from "@/shared/ui/ThemeButton";
+import Button from "@/shared/ui/Button/ui/Button";
+import { useTranslation } from "react-i18next";
+import { LangButton } from "@/shared/ui/LangButton";
 
 const links: {
   to: string;
@@ -37,17 +40,23 @@ function Header() {
     []
   );
 
-  const { toggleTheme } = useAppContext();
+  const { t, i18n } = useTranslation();
+
+  const changeLang = () => {
+    i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
+    console.log(i18n.language);
+  };
 
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
         <Link to={routePath.home} className={styles.logo}>
-          webpack react
+          webpack react {t("hello")}
         </Link>
         <div className={styles.headerLinks}>
           {navLinks}
           <ThemeButton />
+          <LangButton />
         </div>
       </div>
     </header>

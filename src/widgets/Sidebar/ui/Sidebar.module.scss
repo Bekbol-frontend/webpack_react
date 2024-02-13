@@ -1,0 +1,40 @@
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--content-bg-default);
+  position: fixed;
+  top: var(--header-height);
+  left: 0px;
+  bottom: 0px;
+  overflow: hidden;
+  transition: width 100ms;
+
+  &.collapsed {
+    width: var(--sidebar-min-width);
+  }
+
+  .siderbarInner {
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+
+    .menuBlock {
+      padding: 20px;
+    }
+
+    .collapsedBtn {
+      background-color: var(--color-all);
+      color: #fff;
+      position: sticky;
+      top: 100%;
+      left: 0px;
+      right: 0px;
+      width: 100%;
+      border-radius: 0px;
+      padding: 15px;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      font-size: clamp(20px, 1.5vw, 24px);
+    }
+  }
+}

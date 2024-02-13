@@ -18,21 +18,35 @@ const getThemeLocalStorage = (): ThemeType => {
 
 export default function AppContextProvider({ children }: IProps) {
   const [theme, setTheme] = useState(() => getThemeLocalStorage());
+  const [collapsed, setCollapsed] = useState(false);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
+  const toggleCollapsed = () => {
+    setCollapsed((prev) => !prev);
   };
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_THEME, theme);
   }, [theme]);
 
+  const r = {
+    theme,
+    toggleTheme,
+    collapsed,
+    toggleCollapsed,
+  };
+
   const value = useMemo(
     () => ({
       theme,
       toggleTheme,
+      collapsed,
+      toggleCollapsed,
     }),
-    [theme]
+    [theme, collapsed]
   );
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

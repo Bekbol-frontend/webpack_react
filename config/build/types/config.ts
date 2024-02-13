@@ -6,6 +6,8 @@ export interface IPaths {
   html: string;
   devServer: string;
   src: string;
+  locales: string;
+  buildLocales?: string;
 }
 
 export interface IBuildEnv {

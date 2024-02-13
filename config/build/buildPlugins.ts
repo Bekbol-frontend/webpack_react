@@ -2,6 +2,8 @@ import webpack from "webpack";
 import { IBuildOptions } from "./types/config";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import CopyPlugin from "copy-webpack-plugin";
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
 export function buildPlugins(
   options: IBuildOptions
@@ -13,10 +15,17 @@ export function buildPlugins(
       template: paths.html,
       filename: "index.html",
     }),
+    new webpack.DefinePlugin({
+      __IS_DEV__: JSON.stringify(isDev),
+    }),
+    new CopyPlugin({
+      patterns: [{ from: paths.locales, to: paths.buildLocales }],
+    }),
+    new webpack.HotModuleReplacementPlugin(),
   ];
 
   if (isDev) {
-    plugins.push(new webpack.ProgressPlugin());
+    plugins.push(new webpack.ProgressPlugin(), new ReactRefreshWebpackPlugin());
   }
 
   if (isProd) {

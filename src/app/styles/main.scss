@@ -6,3 +6,16 @@ body {
   min-width: 380px;
   background-color: var(--body-bg-default);
 }
+
+// main-content
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  transition: margin 300px;
+  padding: 20px;
+  transition: margin 100ms;
+
+  &.collapsed {
+    margin-left: var(--sidebar-min-width);
+  }
+}
