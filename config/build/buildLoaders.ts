@@ -20,6 +20,26 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.ModuleOptions {
     exclude: /node_modules/,
   };
 
+  const babelLoader = {
+    test: /\.(js|ts)x?$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ["@babel/preset-env"],
+        plugins: [
+          [
+            "i18next-extract",
+            {
+              locales: ["en", "ru"],
+              keyAsDefaultValue: true,
+            },
+          ],
+        ],
+      },
+    },
+  };
+
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -63,6 +83,6 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.ModuleOptions {
   };
 
   return {
-    rules: [cssLoader, tsLoader, fileLoader, svgLoader],
+    rules: [cssLoader, babelLoader, tsLoader, fileLoader, svgLoader],
   };
 }
