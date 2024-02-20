@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Routes, Route } from "react-router-dom";
 import { RootLayout } from "../../RootLayout";
 import { routeConfig } from "@/shared/config/routeConfig";
@@ -18,4 +19,4 @@ function AppRouter() {
   );
 }
 
-export default AppRouter;
+export default memo(AppRouter);

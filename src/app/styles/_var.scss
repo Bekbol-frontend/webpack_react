@@ -27,25 +27,25 @@ $btn-color-dark: royalblue;
 
   --body-bg-light: #{$color-light};
   --body-bg-dark: #{$color-dark};
-  --body-bg-default: #{var(--body-bg-light)};
+  --body-bg-default: var(--body-bg-light);
 
   --content-bg-light: #{$color-gray-light};
   --content-bg-dark: #{$color-gray-dark};
-  --content-bg-default: #{var(--content-bg-light)};
+  --content-bg-default: var(--content-bg-light);
 
   --text-color-light: #{$color-dark};
   --text-color-dark: #{$color-light};
-  --text-color-default: #{var(--text-color-light)};
+  --text-color-default: var(--text-color-light);
 
   --btn-bg-light: #{$btn-bg-light};
   --btn-bg-dark: #{$btn-bg-dark};
-  --btn-bg-default: #{var(--btn-bg-light)};
+  --btn-bg-default: var(--btn-bg-light);
 
   --btn-bg-hover-light: #{$btn-bg-hover-light};
   --btn-bg-hover-dark: #{$btn-bg-hover-dark};
-  --btn-bg-hover-default: #{var(--btn-bg-hover-light)};
+  --btn-bg-hover-default: var(--btn-bg-hover-light);
 
   --btn-color-light: #{$btn-color-light};
   --btn-color-dark: #{$btn-color-dark};
-  --btn-color-default: #{var(--btn-color-light)};
+  --btn-color-default: var(--btn-color-light);
 }

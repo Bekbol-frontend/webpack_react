@@ -32,13 +32,6 @@ export default function AppContextProvider({ children }: IProps) {
     localStorage.setItem(LOCAL_STORAGE_THEME, theme);
   }, [theme]);
 
-  const r = {
-    theme,
-    toggleTheme,
-    collapsed,
-    toggleCollapsed,
-  };
-
   const value = useMemo(
     () => ({
       theme,

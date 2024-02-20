@@ -6,7 +6,7 @@ export const useTheme = () => {
   const html = document.querySelector("html");
 
   useEffect(() => {
-    const vars = [
+    const varsCss = [
       "body-bg",
       "content-bg",
       "text-color",
@@ -15,7 +15,7 @@ export const useTheme = () => {
       "btn-color",
     ];
 
-    vars.forEach((el) => {
+    varsCss.forEach((el) => {
       html?.style.setProperty(`--${el}-default`, `var(--${el}-${theme})`);
     });
   }, [theme]);
