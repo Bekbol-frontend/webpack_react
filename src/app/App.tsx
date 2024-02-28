@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import { useTheme } from "@/shared/hooks";
 import { AppRouter } from "./Providers/Router/AppRouter";
 

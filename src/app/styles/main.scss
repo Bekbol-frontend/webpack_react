@@ -10,10 +10,11 @@ body {
 // main-content
 
 .main-content {
+  position: relative;
   margin-left: var(--sidebar-width);
-  transition: margin 300px;
   padding: 20px;
   transition: margin 100ms;
+  min-height: calc(100vh - var(--header-height));
 
   &.collapsed {
     margin-left: var(--sidebar-min-width);

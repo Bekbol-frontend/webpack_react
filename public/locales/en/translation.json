@@ -1,5 +1,8 @@
 {
   "hello": "Hello",
   "lang": "english",
-  "main page": "Main page"
+  "main page": "Main page",
+  "not found page": "Not found page",
+  "error page": "error page",
+  "reload page": "reload page"
 }

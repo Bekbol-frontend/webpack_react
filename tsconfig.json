@@ -18,10 +18,20 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "./config/jest/setupTests.ts"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    "config",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+  ]
 }

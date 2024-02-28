@@ -1,5 +1,12 @@
 {
+  "": "",
+  "NotFound": "NotFound",
+  "error page": "error page",
+  "go home page": "go home page",
   "hello": "hello",
+  "home page": "home page",
   "lang": "lang",
-  "main page": "main page"
+  "main page": "main page",
+  "not found page": "not found page",
+  "reload page": "reload page"
 }

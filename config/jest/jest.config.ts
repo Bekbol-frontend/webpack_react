@@ -20,6 +20,11 @@ const config: Config = {
   testEnvironment: "jsdom",
   coveragePathIgnorePatterns: ["\\\\node_modules\\\\"],
   moduleDirectories: ["node_modules"],
+  roots: ["<rootDir>src"],
+  moduleNameMapper: {
+    "@/(.*)": "<rootDir>src",
+    "\\.s?css$": "identity-obj-proxy",
+  },
   moduleFileExtensions: [
     "js",
     "mjs",
@@ -30,8 +35,11 @@ const config: Config = {
     "json",
     "node",
   ],
-  rootDir: "../../",
+  // testMatch: ["<rootDir>src/**/?(*.)+(spec|test).[tj]s?(x)"],
+  modulePaths: ["<rootDir>src"],
   testMatch: ["<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)"],
+  rootDir: "../../",
+  setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
@@ -85,6 +93,9 @@ const config: Config = {
   // maxWorkers: "50%",
 
   // An array of directory names to be searched recursively up from the requiring module's location
+  // moduleDirectories: [
+  //   "node_modules"
+  // ],
 
   // An array of file extensions your modules use
 

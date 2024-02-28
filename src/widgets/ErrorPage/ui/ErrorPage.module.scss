@@ -1,0 +1,11 @@
+.errorPage {
+  padding: 40px;
+  display: grid;
+  place-items: center;
+
+  .errorTitle {
+    color: crimson;
+    margin-bottom: clamp(20px, 2vw, 30px);
+    text-transform: capitalize;
+  }
+}

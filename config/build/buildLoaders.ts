@@ -73,13 +73,9 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.ModuleOptions {
   };
 
   const svgLoader = {
-    test: /\.svg$/,
-    use: [
-      {
-        loader: "@svgr/webpack",
-        options: {},
-      },
-    ],
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
+    use: [{ loader: "@svgr/webpack", options: { icon: true } }],
   };
 
   return {

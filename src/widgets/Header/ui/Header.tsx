@@ -1,13 +1,12 @@
-import { memo, useMemo } from "react";
+import { memo, useCallback, useMemo, useState } from "react";
 import styles from "./Header.module.scss";
 import { Link, NavLink } from "react-router-dom";
 import { AppRoutes, routePath } from "@/shared/config/routeConfig";
 import { clsx } from "@/shared/lib/clsx";
-import { useAppContext } from "@/shared/hooks";
 import { ThemeButton } from "@/shared/ui/ThemeButton";
-import Button from "@/shared/ui/Button/ui/Button";
-import { useTranslation } from "react-i18next";
 import { LangButton } from "@/shared/ui/LangButton";
+import Modal from "@/shared/ui/Modal";
+import Button from "@/shared/ui/Button/ui/Button";
 
 const links: {
   to: string;
@@ -24,6 +23,16 @@ const links: {
 ];
 
 function Header() {
+  const [modal, setModal] = useState(false);
+
+  const closeModal = useCallback(() => {
+    setModal(false);
+  }, []);
+
+  const showModal = useCallback(() => {
+    setModal(true);
+  }, []);
+
   const navLinks = useMemo(
     () =>
       links.map((link) => (
@@ -40,25 +49,24 @@ function Header() {
     []
   );
 
-  const { t, i18n } = useTranslation();
-
-  const changeLang = () => {
-    i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
-    console.log(i18n.language);
-  };
-
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
         <Link to={routePath.home} className={styles.logo}>
-          webpack react {t("hello")}
+          webpack react
         </Link>
         <div className={styles.headerLinks}>
           {navLinks}
           <ThemeButton />
           <LangButton />
+          <Button onClick={showModal}>modal</Button>
         </div>
       </div>
+      <Modal modal={modal} closeModal={closeModal}>
+        <div>
+          
+        </div>
+      </Modal>
     </header>
   );
 }

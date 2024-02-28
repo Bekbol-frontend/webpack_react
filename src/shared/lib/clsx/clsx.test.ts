@@ -1,18 +1,19 @@
-import { describe, expect, test } from "@jest/globals";
-import { clsx } from ".";
+import { clsx } from "@/shared/lib/clsx";
 
-describe("sum module", () => {
-  test("clsx class", () => {
-    expect(clsx(["item"])).toBe("item");
+describe("test", () => {
+  test("test clsx array", () => {
+    expect(clsx(["some"])).toBe("some");
   });
-  test("clsx mods all true values", () => {
-    expect(clsx(["item"], { active: true, show: true })).toBe(
-      "item active show"
+
+  test("test clsx mods all true value", () => {
+    expect(clsx(["some"], { active: true, show: true })).toBe(
+      "some active show"
     );
   });
-  test("clsx mods one false values hide", () => {
-    expect(clsx(["item"], { active: true, show: true, hide: false })).toBe(
-      "item active show"
+
+  test("test clsx mods all false value", () => {
+    expect(clsx(["some"], { active: true, show: true, hide: false })).toBe(
+      "some active show"
     );
   });
 });
