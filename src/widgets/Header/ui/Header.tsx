@@ -1,12 +1,13 @@
 import { memo, useCallback, useMemo, useState } from "react";
-import styles from "./Header.module.scss";
 import { Link, NavLink } from "react-router-dom";
 import { AppRoutes, routePath } from "@/shared/config/routeConfig";
 import { clsx } from "@/shared/lib/clsx";
 import { ThemeButton } from "@/shared/ui/ThemeButton";
 import { LangButton } from "@/shared/ui/LangButton";
-import Modal from "@/shared/ui/Modal";
-import Button from "@/shared/ui/Button/ui/Button";
+import { Button } from "@/shared/ui/Button";
+import { LoginModal } from "@/features/AuthUser";
+import { useTranslation } from "react-i18next";
+import styles from "./Header.module.scss";
 
 const links: {
   to: string;
@@ -24,6 +25,8 @@ const links: {
 
 function Header() {
   const [modal, setModal] = useState(false);
+
+  const { t } = useTranslation();
 
   const closeModal = useCallback(() => {
     setModal(false);
@@ -59,14 +62,10 @@ function Header() {
           {navLinks}
           <ThemeButton />
           <LangButton />
-          <Button onClick={showModal}>modal</Button>
+          <Button onClick={showModal}>{t("login")}</Button>
         </div>
       </div>
-      <Modal modal={modal} closeModal={closeModal}>
-        <div>
-          
-        </div>
-      </Modal>
+      <LoginModal modal={modal} closeModal={closeModal} />
     </header>
   );
 }

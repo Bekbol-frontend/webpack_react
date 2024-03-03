@@ -1,1 +1,1 @@
-export { default } from "./ui/PageLoading";
+export { default as PageLoading } from "./ui/PageLoading";

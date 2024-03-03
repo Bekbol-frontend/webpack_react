@@ -1,4 +1,4 @@
-import ErrorPage from "@/widgets/ErrorPage";
+import { ErrorPage } from "@/widgets/ErrorPage";
 import React, { ErrorInfo, Suspense } from "react";
 
 interface IProps {

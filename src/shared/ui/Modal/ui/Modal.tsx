@@ -3,6 +3,7 @@ import styles from "./Modal.module.scss";
 import { TypeMods, clsx } from "@/shared/lib/clsx";
 import { Icon } from "../../Icon";
 import Button from "../../Button/ui/Button";
+import Portal from "../../Portal";
 
 interface IProps {
   children: ReactNode;
@@ -43,26 +44,28 @@ function Modal(props: IProps) {
   };
 
   return (
-    <div className={clsx([styles.modal], mods)} onClick={closeModal}>
-      <article
-        className={styles.modalContainer}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <header className={styles.modalContainerHeader}>
-          <h1 className={styles.modelContainerTitle}>Modal title</h1>
-          <Button
-            type_btn="text"
-            classNameProps={styles.iconButton}
-            onClick={closeModal}
-          >
-            <Icon icon="close" />
-          </Button>
-        </header>
-        <section className={clsx([styles.modalContainerBody])}>
-          {children}
-        </section>
-      </article>
-    </div>
+    <Portal>
+      <div className={clsx([styles.modal], mods)} onClick={closeModal}>
+        <article
+          className={styles.modalContainer}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <header className={styles.modalContainerHeader}>
+            <h1 className={styles.modelContainerTitle}>Modal title</h1>
+            <Button
+              type_btn="text"
+              classNameProps={styles.iconButton}
+              onClick={closeModal}
+            >
+              <Icon icon="close" />
+            </Button>
+          </header>
+          <section className={clsx([styles.modalContainerBody])}>
+            {children}
+          </section>
+        </article>
+      </div>
+    </Portal>
   );
 }
 

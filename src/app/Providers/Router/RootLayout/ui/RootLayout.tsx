@@ -4,7 +4,7 @@ import { Sidebar } from "@/widgets/Sidebar";
 import { Outlet } from "react-router-dom";
 import { clsx } from "@/shared/lib/clsx";
 import { useAppContext } from "@/shared/hooks";
-import PageLoading from "@/shared/ui/PageLoading";
+import { PageLoading } from "@/shared/ui/PageLoading";
 
 function RootLayout() {
   const { collapsed } = useAppContext();

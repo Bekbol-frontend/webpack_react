@@ -1,0 +1,28 @@
+.inputBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .input {
+    display: block;
+    width: 100%;
+    padding: 10px 20px 10px 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+  }
+
+  .errorSpan {
+    color: crimson;
+    font-size: 15px;
+    display: none;
+  }
+
+  &.error {
+    .input {
+      border-color: crimson;
+    }
+    .errorSpan {
+      display: block !important;
+    }
+  }
+}
