@@ -1,9 +1,15 @@
 {
-  "hello": "Hello",
+  "loading": "loading",
   "lang": "english",
   "main page": "Main page",
   "not found page": "Not found page",
   "error page": "error page",
   "reload page": "reload page",
-  "login": "login"
+  "login": "login",
+  "logout": "logout",
+  "Enter username": "Enter username",
+  "Enter password": "Enter password",
+  "Please input your username": "Please input your username!",
+  "Please input your password": "Please input your password!",
+  "You entered an incorrect username or password": "You entered an incorrect username or password"
 }

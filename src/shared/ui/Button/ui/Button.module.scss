@@ -5,6 +5,32 @@
   font-size: 16px;
   border: 1px solid transparent;
   transition: background-color 300ms, color 300ms, border 300ms;
+
+  &.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    & > span {
+      display: flex;
+      color: var(--btn-color-default);
+      animation: loading 1s linear infinite forwards;
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed !important;
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .primary {

@@ -8,6 +8,11 @@ import { Button } from "@/shared/ui/Button";
 import { LoginModal } from "@/features/AuthUser";
 import { useTranslation } from "react-i18next";
 import styles from "./Header.module.scss";
+import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
+import { loginActions } from "@/features/AuthUser/models/slice/loginSlice";
+import { useSelector } from "react-redux";
+import { getUserAuthData } from "@/entities/User";
+import { userActions } from "@/entities/User/model/slice/userSlice";
 
 const links: {
   to: string;
@@ -27,13 +32,21 @@ function Header() {
   const [modal, setModal] = useState(false);
 
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+
+  const userAuthData = useSelector(getUserAuthData);
 
   const closeModal = useCallback(() => {
     setModal(false);
+    dispatch(loginActions.initState());
   }, []);
 
   const showModal = useCallback(() => {
     setModal(true);
+  }, []);
+
+  const loginLogout = useCallback(() => {
+    dispatch(userActions.logout());
   }, []);
 
   const navLinks = useMemo(
@@ -62,10 +75,14 @@ function Header() {
           {navLinks}
           <ThemeButton />
           <LangButton />
-          <Button onClick={showModal}>{t("login")}</Button>
+          {userAuthData?.username ? (
+            <Button onClick={loginLogout}>{t("logout")}</Button>
+          ) : (
+            <Button onClick={showModal}>{t("login")}</Button>
+          )}
         </div>
       </div>
-      <LoginModal modal={modal} closeModal={closeModal} />
+      <LoginModal modal={modal} closeModal={closeModal} lazy />
     </header>
   );
 }

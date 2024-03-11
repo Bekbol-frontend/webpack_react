@@ -1,9 +1,15 @@
 {
-  "hello": "Привет",
+  "loading": "загрузка",
   "lang": "русский",
   "main page": "Главная страница",
   "not found page": "Страница не найдена",
   "error page": "страница ошибки",
   "reload page": "перезагрузить страницу",
-  "login": "войти"
+  "login": "войти",
+  "logout": "выйти",
+  "Enter username": "Введите имя пользователя",
+  "Enter password": "Введите пароль",
+  "Please input your username": "Пожалуйста, введите свое имя пользователя!",
+  "Please input your password": "Пожалуйста, введите свой пароль!",
+  "You entered an incorrect username or password": "Вы ввели неверное имя пользователя или пароль"
 }

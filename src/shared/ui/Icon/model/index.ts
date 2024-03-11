@@ -1,1 +1,1 @@
-export type TypeIcons = "moon" | "sun" | "chevron-right" | "chevron-left" | "close";
+export type TypeIcons = "moon" | "sun" | "chevron-right" | "chevron-left" | "close" | "loading";

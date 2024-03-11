@@ -1,18 +1,22 @@
-import { ReactNode, useCallback, useEffect } from "react";
+import { ReactNode, useCallback, useEffect, useState } from "react";
 import styles from "./Modal.module.scss";
 import { TypeMods, clsx } from "@/shared/lib/clsx";
 import { Icon } from "../../Icon";
 import Button from "../../Button/ui/Button";
 import Portal from "../../Portal";
 
+
 interface IProps {
   children: ReactNode;
   modal: boolean;
   closeModal: () => void;
+  lazy?: boolean;
 }
 
 function Modal(props: IProps) {
-  const { children, modal, closeModal } = props;
+  const { children, modal, closeModal, lazy } = props;
+
+  const [mounted, setMounted] = useState(false);
 
   const onKeyUp = useCallback(
     (e: KeyboardEvent) => {
@@ -39,9 +43,21 @@ function Modal(props: IProps) {
     };
   }, [modal, onKeyUp]);
 
+  useEffect(() => {
+    if (modal) {
+      setMounted(true);
+    }
+
+    return () => {
+      setMounted(false);
+    };
+  }, [modal]);
+
   const mods: TypeMods = {
     [styles.show]: modal,
   };
+
+  if (lazy && !mounted) return null;
 
   return (
     <Portal>
